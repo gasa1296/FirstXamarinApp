@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FirstApp.Views.RegisterPage">
+    <ContentPage.Content>
+        <StackLayout Padding="10,0,10,0" VerticalOptions="Center">
+            <Label Text="Register User" FontSize="Title" HorizontalOptions="Center" Padding="0,0,0,20"/>
+            <Label Text="Email"/>
+                <Entry Placeholder="Email" Text="{Binding Email}"/>
+                <Label Text="Password"/>
+                <Entry Placeholder="Password" IsPassword="True" Text="{Binding Password}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
