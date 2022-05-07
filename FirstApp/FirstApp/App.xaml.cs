@@ -14,6 +14,8 @@ namespace FirstApp
             InitializeComponent();
 
             DependencyService.Register<MockDataStore>();
+            DependencyService.Register<UserStore>();
+            DependencyService.Register<Auth>();
             MainPage = new AppShell();
         }
 
