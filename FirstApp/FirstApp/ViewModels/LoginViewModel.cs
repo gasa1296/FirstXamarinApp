@@ -23,7 +23,7 @@ namespace FirstApp.ViewModels
                 Email = email,
                 Password = password
             };
-            if (await UserStore.Login(user))
+            if (await Auth.Login(user))
                 await Shell.Current.GoToAsync($"//{nameof(AboutPage)}");
         }
         public string Email

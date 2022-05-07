@@ -1,8 +1,5 @@
 ﻿using FirstApp.Services;
-using FirstApp.Views;
-using System;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace FirstApp
 {
@@ -15,6 +12,7 @@ namespace FirstApp
 
             DependencyService.Register<MockDataStore>();
             DependencyService.Register<UserStore>();
+            DependencyService.Register<Auth>();
             MainPage = new AppShell();
         }
 

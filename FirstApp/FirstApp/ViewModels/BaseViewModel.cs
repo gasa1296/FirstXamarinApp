@@ -12,6 +12,7 @@ namespace FirstApp.ViewModels
     {
         public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
         public IUserStore UserStore => DependencyService.Get<IUserStore>();
+        public IAuth<User> Auth => DependencyService.Get<IAuth<User>>();
 
         bool isBusy = false;
         public bool IsBusy

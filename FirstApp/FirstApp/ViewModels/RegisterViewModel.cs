@@ -4,7 +4,7 @@ using System.Text;
 
 namespace FirstApp.Views
 {
-    internal class RegisterViewModel
+    public class RegisterViewModel
     {
     }
 }
