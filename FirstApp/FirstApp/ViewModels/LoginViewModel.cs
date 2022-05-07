@@ -1,6 +1,5 @@
 ﻿using FirstApp.Models;
 using FirstApp.Views;
-using System.Diagnostics;
 using Xamarin.Forms;
 
 namespace FirstApp.ViewModels
@@ -19,14 +18,13 @@ namespace FirstApp.ViewModels
 
         private async void OnLoginClicked(object obj)
         {
-            User user = new User
+            if (await Auth.Login(Email, Password))
             {
-                Email = email,
-                Password = password
-            };
-            Debug.WriteLine("login clicked");
-            if (await Auth.Login(user))
+                Email = "";
+                Password = "";
                 await Shell.Current.GoToAsync($"//{nameof(AboutPage)}");
+            }
+
         }
         public string Email
         {

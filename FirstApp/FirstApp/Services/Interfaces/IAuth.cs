@@ -2,9 +2,9 @@
 
 namespace FirstApp.Services
 {
-    public interface IAuth<T>
+    public interface IAuth
     {
-        Task<bool> Login(T user);
+        Task<bool> Login(string Email, string Password);
         Task<bool> Logout();
     }
 }

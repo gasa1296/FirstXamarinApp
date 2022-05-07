@@ -2,20 +2,23 @@
 using FirstApp.Utils;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
+
 namespace FirstApp.Services
 {
-    public class Auth : IAuth<User>
+    public class Auth : IAuth
     {
-        public async Task<bool> Login(User user)
+        private ApiConsumer consumer = new ApiConsumer();
+        public async Task<bool> Login(string Email, string Password)
         {
-            if (user == null) return false;
-            if (string.IsNullOrWhiteSpace(user.Email)) return false;
-            if (string.IsNullOrWhiteSpace(user.Password)) return false;
+            if (string.IsNullOrWhiteSpace(Email)) return false;
+            if (string.IsNullOrWhiteSpace(Password)) return false;
 
-            Debug.WriteLine("Creating Consumer");
-            ApiConsumer consumer = new ApiConsumer();
-            if (await consumer.PostRequest(user) != null)
+            string token = await consumer.PostRequest(new LoginModel { Email = Email, Password = Password, Device = DeviceInfo.Name });
+            if (token != null)
+            {
                 return await Task.FromResult(true);
+            }
 
             return await Task.FromResult(false);
         }
